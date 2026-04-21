@@ -587,12 +587,17 @@ export default function HeroBanner() {
           >
             <span
               className="
-              flex-shrink-0 inline-flex items-center gap-1 md:gap-1.5
-              bg-primary-light text-primary-dark
-              text-[9px] md:text-[10px] font-black tracking-[1.5px] uppercase
-              px-2.5 md:px-3.5 py-1 mx-2.5 md:mx-4 rounded-sm
-            "
+                flex-shrink-0 inline-flex items-center gap-1 md:gap-1.5
+                bg-emerald-50 text-emerald-600 border border-emerald-100
+                text-[9px] md:text-[10px] font-black tracking-[1.5px] uppercase
+                px-2.5 md:px-3.5 py-1 mx-2.5 md:mx-4 rounded-full
+              "
             >
+              <span className="relative flex h-2 w-2">
+                {/* Efek Ping (Animasi Berdenyut) */}
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+              </span>
               <svg
                 width="9"
                 height="9"

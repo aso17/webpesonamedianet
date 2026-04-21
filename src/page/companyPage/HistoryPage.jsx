@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { History, Award, Users, ShieldCheck } from "lucide-react";
-import PageHeader from "../component/sections/PageHeader";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import PageHeader from "../../component/sections/PageHeader";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 export default function HistoryPage() {
   useDocumentTitle("Sejarah");
   const itemVariants = {
@@ -18,8 +18,11 @@ export default function HistoryPage() {
     <main className="bg-white">
       {/* HEADER HALAMAN */}
       <PageHeader
-        title="Sejarah Kami"
-        subtitle="Perjalanan Pesona Network Mediautama dalam menghadirkan konektivitas fiber optik sejak 2021."
+        variant="dark"
+        title="Sejarah"
+        titleAccent="Perusahaan"
+        badge="Milestone"
+        subtitle="Perjalanan Pesona Network Mediautama dalam menghadirkan konektivitas fiber optik sejak tahun 2021 hingga menjadi pilihan utama."
       />
 
       {/* CONTENT SEJARAH */}

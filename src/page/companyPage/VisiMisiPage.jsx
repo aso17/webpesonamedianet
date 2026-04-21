@@ -2,8 +2,8 @@ import React from "react";
 import { motion } from "framer-motion";
 // ShieldCheck sudah ditambahkan di sini
 import { ShieldCheck, Target, Rocket, Eye, CheckCircle2 } from "lucide-react";
-import PageHeader from "../component/sections/PageHeader";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import PageHeader from "../../component/sections/PageHeader";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 export default function VisiMisiPage() {
   useDocumentTitle("Visi & Misi");
   const containerVariants = {
@@ -23,10 +23,12 @@ export default function VisiMisiPage() {
   return (
     <main className="bg-white">
       <PageHeader
+        variant="centered"
         title="Visi & Misi"
-        subtitle="Komitmen PT. Pesona Network Mediautama dalam membangun masa depan digital yang inklusif."
+        badge="Goal & Ambition"
+        subtitle="Komitmen PT. Pesona Network Mediautama dalam membangun masa depan digital yang inklusif di wilayah Tangerang dan sekitarnya."
+        tags={["Inovasi", "Integritas", "Inklusif"]}
       />
-
       {/* SECTION VISI */}
       <section className="py-24 relative overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 lg:px-8">

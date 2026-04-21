@@ -1,8 +1,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { ShieldCheck, FileText, Scale, Award, CheckCircle } from "lucide-react";
-import PageHeader from "../component/sections/PageHeader";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import PageHeader from "../../component/sections/PageHeader";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 
 export default function LegalitasPage() {
   useDocumentTitle("Izin & Legalitas Resmi");
@@ -46,7 +46,9 @@ export default function LegalitasPage() {
   return (
     <main className="bg-white">
       <PageHeader
-        title="Legalitas"
+        variant="centered"
+        title="Legalitas Resmi"
+        badge="Compliance"
         subtitle="Aspek hukum dan perizinan resmi PT. Pesona Network Mediautama sebagai penyelenggara layanan internet terpercaya."
       />
 

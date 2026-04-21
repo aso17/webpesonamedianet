@@ -6,9 +6,9 @@ import {
   CheckCircle,
   Fingerprint,
 } from "lucide-react";
-import PageHeader from "../component/sections/PageHeader";
+import PageHeader from "../../component/sections/PageHeader";
 import { motion } from "framer-motion";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import { useDocumentTitle } from "../..//hooks/useDocumentTitle";
 export default function AboutPage() {
   useDocumentTitle("Tentang Kami");
   const containerVariants = {
@@ -28,8 +28,15 @@ export default function AboutPage() {
   return (
     <main className="bg-white">
       <PageHeader
+        variant="split"
         title="Tentang Kami"
+        badge="Profil Perusahaan"
         subtitle="Mengenal lebih dekat PT. Pesona Network Mediautama dan komitmen kami untuk konektivitas Tangerang."
+        stats={[
+          { num: "5", suffix: "+", label: "Tahun Pengalaman" },
+          { num: "99", suffix: "%", label: "Uptime Service" },
+          { num: "24", suffix: "/7", label: "Support Teknis" },
+        ]}
       />
 
       {/* HERO INTRO */}

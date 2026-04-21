@@ -8,8 +8,8 @@ import {
   Search,
   Lightbulb,
 } from "lucide-react";
-import PageHeader from "../component/sections/PageHeader";
-import { useDocumentTitle } from "../hooks/useDocumentTitle";
+import PageHeader from "../../component/sections/PageHeader";
+import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 export default function NilaiPerusahaanPage() {
   useDocumentTitle("Nilai Perusahaan");
   const containerVariants = {
@@ -65,10 +65,13 @@ export default function NilaiPerusahaanPage() {
   return (
     <main className="bg-white">
       <PageHeader
-        title="Nilai Perusahaan"
+        variant="glass"
+        title="Nilai"
+        titleAccent="Perusahaan"
+        badge="Corporate Culture"
         subtitle="Prinsip dasar yang menjadi jiwa dalam setiap layanan PT. Pesona Network Mediautama."
+        meta={["Customer First", "Quality Driven", "Reliable Support"]}
       />
-
       <section className="py-24 relative overflow-hidden">
         {/* BG Decor */}
         <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-[#00AEEF]/5 rounded-full blur-[120px] -z-10" />

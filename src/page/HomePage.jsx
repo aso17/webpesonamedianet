@@ -55,7 +55,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.2 }}
-                className="group p-8 rounded-[2.5rem] bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-[#0054A6]/10 transition-all duration-500 border border-transparent hover:border-slate-100"
+                className="group p-8 rounded-[2.5rem] bg-slate-50 lg:bg-slate-50 hover:bg-white hover:shadow-2xl hover:shadow-[#0054A6]/10 transition-all duration-500 border border-slate-200 lg:border-transparent hover:border-slate-100"
               >
                 {/* Ikon berubah jadi hijau (#22c55e) saat card di-hover */}
                 <div className="w-16 h-16 bg-[#0054A6]/5 rounded-2xl flex items-center justify-center text-[#0054A6] mb-6 group-hover:scale-110 group-hover:bg-green-50 group-hover:text-[#22c55e] transition-all duration-500 shadow-sm">
@@ -140,7 +140,7 @@ export default function HomePage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 whileHover={{ y: -5 }}
-                className="group relative p-[1px] rounded-[2rem] overflow-hidden bg-slate-100 hover:bg-[linear-gradient(135deg,#0054A6_0%,#00AEEF_100%)] transition-all duration-500 cursor-pointer"
+                className="group relative p-[1px] rounded-[2rem] overflow-hidden bg-slate-200 lg:bg-slate-100 hover:bg-[linear-gradient(135deg,#0054A6_0%,#00AEEF_100%)] transition-all duration-500 cursor-pointer shadow-sm lg:shadow-none"
               >
                 {/* Link membungkus seluruh area kartu */}
                 <Link to={service.href} className="block h-full">
