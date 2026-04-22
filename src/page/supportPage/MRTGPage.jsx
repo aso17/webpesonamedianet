@@ -6,6 +6,9 @@ import { useDocumentTitle } from "../../hooks/useDocumentTitle";
 export default function MRTGPage() {
   useDocumentTitle("MRTG - Monitoring Traffic Pesonanet");
 
+  // Ganti URL ini dengan alamat portal login MRTG atau Mikrotik Mas
+  const MRTG_LOGIN_URL = "https://mrtg.pesonanet.id/login";
+
   return (
     <main className="min-h-screen bg-[#000a1a]">
       <PageHeader
@@ -26,16 +29,23 @@ export default function MRTGPage() {
             <h2 className="text-white text-2xl md:text-3xl font-black mb-4">
               Akses Terbatas
             </h2>
-            <p className="text-white/50 mb-10 max-w-md mx-auto">
+            <p className="text-white/50 mb-10 max-w-md mx-auto text-sm">
               Halaman monitoring MRTG memerlukan kredensial khusus. Silakan
               masukkan detail login yang telah diberikan oleh tim NOC kami.
             </p>
 
             <div className="max-w-sm mx-auto space-y-4">
-              <button className="w-full py-4 bg-[#00AEEF] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 transition-all">
+              {/* Tombol Redirect ke Portal Eksternal */}
+              <a
+                href={MRTG_LOGIN_URL}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="w-full py-4 bg-[#00AEEF] text-white rounded-xl font-bold flex items-center justify-center gap-2 hover:scale-105 active:scale-95 transition-all shadow-lg shadow-[#00AEEF]/20"
+              >
                 Login ke Portal MRTG <ExternalLink className="w-4 h-4" />
-              </button>
-              <p className="text-[11px] text-white/30 uppercase tracking-[2px]">
+              </a>
+
+              <p className="text-[11px] text-white/30 uppercase tracking-[2px] pt-4">
                 Powered by Pesonanet NOC System
               </p>
             </div>
@@ -43,24 +53,24 @@ export default function MRTGPage() {
 
           {/* Info Teknis Pelengkap */}
           <div className="grid md:grid-cols-2 gap-6 mt-12">
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4 transition-colors hover:bg-white/10">
               <BarChart3 className="w-8 h-8 text-[#00AEEF]/50" />
               <div className="text-left">
                 <div className="text-white font-bold text-sm">
                   Real-time Data
                 </div>
-                <div className="text-white/40 text-xs font-medium">
+                <div className="text-white/40 text-[11px] font-medium uppercase tracking-wider">
                   Update setiap 5 menit
                 </div>
               </div>
             </div>
-            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4">
+            <div className="p-6 rounded-2xl bg-white/5 border border-white/5 flex items-center gap-4 transition-colors hover:bg-white/10">
               <Activity className="w-8 h-8 text-[#00AEEF]/50" />
               <div className="text-left">
                 <div className="text-white font-bold text-sm">
                   Traffic Analysis
                 </div>
-                <div className="text-white/40 text-xs font-medium">
+                <div className="text-white/40 text-[11px] font-medium uppercase tracking-wider">
                   Daily, Weekly & Monthly Report
                 </div>
               </div>

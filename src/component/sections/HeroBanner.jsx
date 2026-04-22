@@ -1,5 +1,10 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { Link } from "react-router-dom";
+const whatsappNumber = "6287825122645";
+const message = encodeURIComponent(
+  "Halo Pesonanet, saya ingin bertanya tentang layanan internet."
+);
+const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
 const SLIDES = [
   {
@@ -7,8 +12,11 @@ const SLIDES = [
     title: ["Koneksi Tanpa", "Batas untuk", "Bisnis Anda"],
     accentLine: 2,
     sub: "Solusi internet dedicated dengan uptime 99,9% dan SLA yang terjamin untuk mendukung pertumbuhan bisnis Anda.",
-    cta: { label: "Mulai Sekarang", href: "/pelanggan/daftar" },
-    ctaSecondary: { label: "Lihat Demo", href: "#demo" },
+    cta: { label: "Mulai Sekarang", href: waUrl },
+    ctaSecondary: {
+      label: "Lihat Selengkapnya",
+      href: "/services/dedicated-internet",
+    },
     stats: [
       { n: "99", s: ".5%", l: "Uptime" },
       { n: "24", s: "/7", l: "Support" },
@@ -22,7 +30,7 @@ const SLIDES = [
     accentLine: 1,
     sub: "Layanan managed service kami memastikan jaringan Anda selalu optimal dengan tim ahli yang siap kapan saja.",
     cta: { label: "Pelajari Layanan", href: "/layanan/manage-service" },
-    ctaSecondary: { label: "Hubungi Kami", href: "/hubungi-kami" },
+    ctaSecondary: { label: "Hubungi Kami", href: waUrl },
     stats: [
       { n: "500", s: "+", l: "Klien" },
       { n: "6", s: "th+", l: "Pengalaman" },
@@ -36,7 +44,7 @@ const SLIDES = [
     accentLine: 0,
     sub: "Nikmati streaming, gaming, dan bekerja dari rumah dengan kecepatan tinggi yang stabil dan harga terjangkau.",
     cta: { label: "Cek Paket", href: "/layanan/broadband" },
-    ctaSecondary: { label: "Cek Coverage", href: "#coverage" },
+    ctaSecondary: { label: "Cek Coverage", href: "/layanan/broadband" },
     stats: [
       { n: "1", s: "Gbps", l: "Kecepatan" },
       { n: "3", s: "K+", l: "Pengguna" },
@@ -52,7 +60,7 @@ const TICKER = [
   "Managed Service — Tim Ahli Siap 24/7 Mendukung Operasional",
   "Broadband Fiber Optic hingga 1 Gbps untuk Rumah dan Kantor",
   "Tes Bandwidth Gratis — Cek Kecepatan Koneksi Anda Sekarang",
-  "Hubungi Kami: +62 21 1234 5678 · info@pesonamedianet.id",
+  "Hubungi Kami: (021) 397-183-19 · admin@pesonamedia.net",
 ];
 
 const DURATION = 5000;

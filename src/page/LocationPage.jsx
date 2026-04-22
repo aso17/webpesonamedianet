@@ -69,7 +69,7 @@ export default function LocationPage() {
                       Telepon
                     </div>
                     <div className="text-[#001f4d] font-bold text-sm">
-                      +62-878-251-226-45
+                      (021) 397-183-19
                     </div>
                   </div>
                   <div className="p-6 rounded-3xl border border-slate-100 flex flex-col gap-3">
@@ -78,7 +78,7 @@ export default function LocationPage() {
                       Email
                     </div>
                     <div className="text-[#001f4d] font-bold text-sm">
-                      @pesonamedia.net
+                      admin@pesonamedia.net
                     </div>
                   </div>
                 </div>

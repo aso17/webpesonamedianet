@@ -48,7 +48,7 @@ export default function CareerPage() {
 
               <div className="flex flex-col sm:flex-row items-center justify-center gap-4">
                 <a
-                  href="mailto:hrd@pesonanet.id"
+                  href="mailto:admin@pesonamedia.net"
                   className="flex items-center gap-2 px-8 py-4 bg-[#001f4d] text-white rounded-full font-bold hover:bg-[#003d8f] transition-all"
                 >
                   <Mail className="w-4 h-4" /> Kirim CV (Database)

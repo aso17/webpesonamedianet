@@ -2,12 +2,20 @@ import { useState, useEffect, useRef } from "react";
 import { NAV_ITEMS } from "../../constants/NavigationItem";
 import { MenuIcon, CloseIcon } from "../common/Icons";
 import { DesktopNavItem, MobileNavItem } from "./NavItems";
+import logoPesonanet from "../../assets/logo.png";
+
+const whatsappNumber = "6287825122645";
+const message = encodeURIComponent(
+  "Halo Admin Pesonanet, saya ingin ingin Berlangganan layanan internet."
+);
+
+const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
 
 export default function Navbar() {
   const [mobileOpen, setMobileOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeMenu, setActiveMenu] = useState(null);
-  const closeTimer = useRef(null); // ← timer untuk delay close
+  const closeTimer = useRef(null);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 20);
@@ -27,7 +35,6 @@ export default function Navbar() {
     return () => document.removeEventListener("mousedown", handleClick);
   }, []);
 
-  // ← Bungkus setActiveMenu dengan delay saat close
   const handleNavMouseLeave = () => {
     closeTimer.current = setTimeout(() => {
       setActiveMenu(null);
@@ -35,7 +42,6 @@ export default function Navbar() {
   };
 
   const handleNavMouseEnter = () => {
-    // Batalkan timer close jika mouse balik masuk
     if (closeTimer.current) {
       clearTimeout(closeTimer.current);
     }
@@ -53,14 +59,16 @@ export default function Navbar() {
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div id="main-navbar" className="flex items-center h-16">
-            {/* LOGO */}
+            {/* LOGO DESKTOP */}
             <a
               href="/"
               className="flex items-center shrink-0 mr-auto outline-none"
             >
               <img
-                src="/logo.png"
+                src={logoPesonanet} // Menggunakan variabel import
                 alt="Logo Pesona Medianet"
+                loading="lazy" // Lazy load aktif
+                decoding="async"
                 className={`transition-all duration-300 object-contain ${
                   scrolled ? "h-10" : "h-14"
                 }`}
@@ -71,8 +79,8 @@ export default function Navbar() {
             {/* NAV DESKTOP */}
             <nav
               className="hidden lg:flex items-center gap-1 mr-8"
-              onMouseLeave={handleNavMouseLeave} // ← pakai delay
-              onMouseEnter={handleNavMouseEnter} // ← batalkan timer
+              onMouseLeave={handleNavMouseLeave}
+              onMouseEnter={handleNavMouseEnter}
             >
               {NAV_ITEMS.map((item) => (
                 <DesktopNavItem
@@ -80,7 +88,6 @@ export default function Navbar() {
                   item={item}
                   activeMenu={activeMenu}
                   setActiveMenu={(val) => {
-                    // Batalkan timer setiap kali ada menu yang diset
                     if (closeTimer.current) clearTimeout(closeTimer.current);
                     setActiveMenu(val);
                   }}
@@ -91,7 +98,7 @@ export default function Navbar() {
             {/* ACTION AREA */}
             <div className="flex items-center gap-3 shrink-0">
               <a
-                href="/pelanggan/daftar"
+                href={waUrl}
                 className="hidden lg:inline-flex items-center justify-center
                   px-6 py-2.5 rounded-full text-sm font-bold text-white
                   transition-all duration-300 hover:-translate-y-0.5
@@ -135,7 +142,14 @@ export default function Navbar() {
       >
         <div className="flex flex-col h-full">
           <div className="flex items-center justify-between px-6 h-20 border-b border-slate-50">
-            <img src="/logo.png" alt="Logo" className="h-8 object-contain" />
+            {/* LOGO MOBILE - Juga gunakan variabel import */}
+            <img
+              src={logoPesonanet}
+              alt="Logo"
+              className="h-8 object-contain"
+              style={{ mixBlendMode: "multiply" }}
+              loading="lazy"
+            />
             <button
               onClick={() => setMobileOpen(false)}
               className="p-2 text-slate-900"
