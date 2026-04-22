@@ -1,9 +1,42 @@
 import { NAV_ITEMS } from "../../constants/NavigationItem";
 
 export default function Footer() {
+  // Mas bisa sesuaikan nomor WA dan pesan otomatisnya di sini
+  const whatsappNumber = "6287825122645";
+  const message = encodeURIComponent(
+    "Halo Pesonanet, saya ingin bertanya tentang layanan internet."
+  );
+  const waUrl = `https://wa.me/${whatsappNumber}?text=${message}`;
+
   return (
-    <footer className="bg-slate-900 text-white mt-auto">
-      {/* Bagian Atas: Links & Info */}
+    <footer className="bg-slate-900 text-white mt-auto relative">
+      {/* Tombol WA Melayang */}
+      <a
+        href={waUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-[999] group flex items-center gap-3"
+      >
+        {/* Label Hover (Opsional, muncul saat di-hover) */}
+        <span className="bg-white text-slate-900 px-4 py-2 rounded-full text-sm font-bold shadow-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none hidden md:block">
+          Chat dengan Kami
+        </span>
+
+        {/* Container Icon WA */}
+        <div className="w-14 h-14 md:w-16 md:h-16 rounded-full bg-[#25D366] p-0 shadow-[0_8px_30px_rgb(37,211,102,0.4)] hover:scale-110 transition-transform duration-300 flex items-center justify-center overflow-hidden border-4 border-white">
+          {/* Mengambil GIF dari /public/wa-icon.gif */}
+          <img
+            src="/wa-icon.gif"
+            alt="WhatsApp Support"
+            className="w-full h-full object-cover"
+          />
+        </div>
+
+        {/* Efek Ping (Radar) di belakang tombol agar menarik perhatian */}
+        <span className="absolute -z-10 inset-0 rounded-full bg-[#25D366] animate-ping opacity-40"></span>
+      </a>
+
+      {/* --- Bagian Atas: Links & Info --- */}
       <div className="max-w-7xl mx-auto px-4 py-12 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
         {/* Kolom 1: Branding */}
         <div className="space-y-4">
@@ -18,7 +51,7 @@ export default function Footer() {
           </p>
         </div>
 
-        {/* Kolom 2: Layanan (Diambil dari constants) */}
+        {/* Kolom 2: Layanan */}
         <div>
           <h4 className="font-bold text-lg mb-4 border-b border-blue-500 pb-2 w-fit">
             Layanan Kami
@@ -67,18 +100,18 @@ export default function Footer() {
           </h4>
           <ul className="space-y-3 text-gray-400 text-sm">
             <li className="flex items-start gap-3">
-              <span>📍</span>
+              <span className="text-[#00AEEF]">📍</span>
               <span>
                 KP. PEUSAR RT.005/001, Desa/Kelurahan Binong, Kec. Curug, Kab.
                 Tangerang, Provinsi Banten
               </span>
             </li>
             <li className="flex items-center gap-3">
-              <span>📞</span>
+              <span className="text-[#00AEEF]">📞</span>
               <span>(021) 1234-5678</span>
             </li>
             <li className="flex items-center gap-3">
-              <span>✉️</span>
+              <span className="text-[#00AEEF]">✉️</span>
               <span>info@pesonanet.id</span>
             </li>
           </ul>

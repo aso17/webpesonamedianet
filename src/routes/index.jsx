@@ -3,6 +3,7 @@ import {
   Routes,
   Route,
   useLocation,
+  Navigate,
 } from "react-router-dom";
 import { useEffect } from "react";
 
@@ -21,7 +22,23 @@ import LegalitasPage from "../page/companyPage/LegalitasPage";
 
 // Pages - Services
 import ServiceInternetDedicated from "../page/ServicePage/ServiceInternetDedicated";
+import ServiceManage from "../page/ServicePage/ServiceManage";
+import ServiceBusiness from "../page/ServicePage/ServiceBusiness";
+import ServiceCorporate from "../page/ServicePage/ServiceCorporate";
+import ServiceReseller from "../page/ServicePage/ServiceReseller";
+import ServiceBroadband from "../page/ServicePage/ServiceBroadband";
 
+// Pages - Career
+import CareerPage from "../page/CareerPage";
+
+// Pages - support
+import FAQPage from "../page/supportPage/FAQPage";
+import MRTGPage from "../page/supportPage/MRTGPage";
+import SpeedTestPage from "../page/supportPage/SpeedTestPage";
+import LookingGlassPage from "../page/supportPage/LookingGlassPage";
+import RPKIPage from "../page/supportPage/RPKIPage";
+
+import LocationPage from "../page/LocationPage";
 /**
  * Komponen Helper untuk update Title & Scroll ke atas otomatis
  */
@@ -63,22 +80,37 @@ function AppRouter() {
           <Route path="/" element={<HomePage />} />
 
           {/* Company Routes */}
-          <Route path="/perusahaan">
-            <Route path="tentang-kami" element={<AboutPage />} />
-            <Route path="visi-misi" element={<VisiMisiPage />} />
-            <Route path="sejarah" element={<HistoryPage />} />
-            <Route path="nilai" element={<NilaiPerusahaanPage />} />
-            <Route path="legalitas" element={<LegalitasPage />} />
+          <Route path="/company">
+            <Route path="about-us" element={<AboutPage />} />
+            <Route path="vision-mission" element={<VisiMisiPage />} />
+            <Route path="history" element={<HistoryPage />} />
+            <Route path="values" element={<NilaiPerusahaanPage />} />
+            <Route path="legal" element={<LegalitasPage />} />
           </Route>
 
           {/* Service Routes */}
-          <Route path="/layanan">
+          <Route path="/services">
             <Route
-              path="internet-dedicated"
+              path="dedicated-internet"
               element={<ServiceInternetDedicated />}
             />
-            {/* Mas bisa tambah route layanan lain di bawah sini nanti */}
+            <Route path="managed-services" element={<ServiceManage />} />
+            <Route path="business" element={<ServiceBusiness />} />
+            <Route path="corporate" element={<ServiceCorporate />} />
+            <Route path="reseller" element={<ServiceReseller />} />
+            <Route path="broadband" element={<ServiceBroadband />} />
           </Route>
+          <Route path="Careers" element={<CareerPage />} />
+
+          <Route path="/support">
+            <Route path="faq" element={<FAQPage />} />
+            <Route path="mrtg" element={<MRTGPage />} />
+            <Route path="speed-test" element={<SpeedTestPage />} />
+            <Route path="looking-glass" element={<LookingGlassPage />} />
+            <Route path="rpki-validator" element={<RPKIPage />} />
+          </Route>
+          <Route path="locations" element={<LocationPage />} />
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </MainLayout>
     </Router>
